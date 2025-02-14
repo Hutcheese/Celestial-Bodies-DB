@@ -1,0 +1,22 @@
+INSERT INTO galaxy (
+    name,
+    age_in_millions_of_years,
+    has_life
+) 
+    
+    VALUES
+    ('Milky Way',12100,true),
+    ('IOK-1',12880,NULL),
+    ('GN-108036',12900,NULL),
+    ('SXDF-ND1006-2',12910,NULL),
+    ('z8_GND_5296',13100,NULL),
+    ('EGS-zs8-1',13130,NULL);
+
+INSERT INTO star (name,age_in_millions_of_years,distance_from_earth,has_life,galaxy_id)
+VALUES
+    ('Sol',4600,0,true,1),
+    ('Rigil Kentaurus',4800,4.37,NULL,1),
+    ('Toliman',4800,4.37,NULL,1),
+    ('Proxima Centauri',4800,4.26,NULL,1),
+    ('Barnards Star',5600,5.96,NULL,1),
+    ('Wolf 359',4950,7.78,NULL,1);
