@@ -1,10 +1,8 @@
 INSERT INTO galaxy (
     name,
     age_in_millions_of_years,
-    has_life
-) 
-    
-    VALUES
+    has_life) 
+VALUES
     ('Milky Way',12100,true),
     ('IOK-1',12880,NULL),
     ('GN-108036',12900,NULL),
@@ -12,7 +10,12 @@ INSERT INTO galaxy (
     ('z8_GND_5296',13100,NULL),
     ('EGS-zs8-1',13130,NULL);
 
-INSERT INTO star (name,age_in_millions_of_years,distance_from_earth,has_life,galaxy_id)
+INSERT INTO star (
+    name,
+    age_in_millions_of_years,
+    distance_from_earth,
+    has_life,
+    galaxy_id)
 VALUES
     ('Sol',4600,0,true,1),
     ('Rigil Kentaurus',4800,4.37,NULL,1),
@@ -20,3 +23,64 @@ VALUES
     ('Proxima Centauri',4800,4.26,NULL,1),
     ('Barnards Star',5600,5.96,NULL,1),
     ('Wolf 359',4950,7.78,NULL,1);
+
+INSERT INTO planet (
+    name,
+    age_in_millions_of_years,
+    distance_from_earth,
+    has_life,
+    star_id
+)
+VALUES
+    ('Mercury',4568,0,false,1),
+    ('Venus',4568,0,false,1),
+    ('Earth',4568,0,true,1),
+    ('Mars',4568,0,NULL,1),
+    ('Jupiter',4568,0,false,1),
+    ('Saturn',4568,0,false,1),
+    ('Uranus',4568,0,false,1),
+    ('Neptune',4568,0,false,1),
+    ('Pluto',4568,0,false,1),
+    ('Proxima b',4815,4.37,NULL,2),
+    ('Proxima c',4815,4.37,NULL,2),
+    ('Proxima d',4815,4.37,NULL,2);
+
+INSERT INTO moon (
+    name,
+    age_in_millions_of_years,
+    distance_from_earth,
+    has_life,
+    planet_id
+)
+VALUES
+    ('Moon', 4568, 0,false,3),
+    ('Phobos', 4568, 0,false,4),
+    ('Deimos', 4568, 0,false,4),
+    ('Metis', 4568, 0,false,5),
+    ('Adrastea', 4568, 0,false,5),
+    ('Amalthea', 4568, 0,false,5),
+    ('Thebe', 4568, 0,false,5),
+    ('Io', 4568, 0,false,5),
+    ('Europa', 4568, 0,false,5),
+    ('Ganymede', 4568, 0,false,5),
+    ('Callisto', 4568, 0,false,5),
+    ('Thermisto', 4568, 0,false,5),
+    ('Leda', 4568, 0,false,5),
+    ('Ersa', 4568, 0,false,5),
+    ('Himalia', 4568, 0,false,5),
+    ('Pandia', 4568, 0,false,5),
+    ('Lysithea', 4568, 0,false,5),
+    ('Elara', 4568, 0,false,5),
+    ('Dia', 4568, 0,false,5),
+    ('Carpo', 4568, 0,false,5),
+    ('Valetudo', 4568, 0,false,5);
+
+INSERT INTO species (
+    name,
+    space_travel_capable,
+    planet_id
+)
+VALUES
+    ('Human',true,3),
+    ('Dogs',false,3),
+    ('Cats',false,3);

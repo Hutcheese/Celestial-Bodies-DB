@@ -1,0 +1,52 @@
+CREATE DATABASE universe;
+
+/c universe
+
+CREATE TABLE galaxy(
+    galaxy_id SERIAL PRIMARY KEY,
+    name VARCHAR(60) UNIQUE NOT NULL,
+    age_in_millions_of_years INT,
+    distance_from_earth NUMERIC(7,2),
+    has_life boolean
+    );
+
+CREATE TABLE star(
+    star_id SERIAL PRIMARY KEY,
+    name VARCHAR(60) UNIQUE NOT NULL,
+    age_in_millions_of_years INT,
+    distance_from_earth NUMERIC(7,2),
+    has_life boolean,
+    galaxy_id INT,
+    CONSTRAINT fk_galaxy_id FOREIGN KEY(galaxy_id) REFERENCES galaxy(galaxy_id)
+    );
+
+CREATE TABLE planet(
+    planet_id SERIAL PRIMARY KEY,
+    name VARCHAR(60) UNIQUE NOT NULL,
+    age_in_millions_of_years INT,
+    distance_from_earth NUMERIC(7,2),
+    has_life boolean,
+    star_id INT,
+    CONSTRAINT fk_star_id FOREIGN KEY(star_id) REFERENCES star(star_id)
+    );
+
+CREATE TABLE moon(
+    moon_id SERIAL PRIMARY KEY,
+    name VARCHAR(60) UNIQUE NOT NULL,
+    age_in_millions_of_years INT,
+    distance_from_earth NUMERIC(7,2),
+    has_life boolean,
+    planet_id INT,
+    CONSTRAINT fk_planet_id FOREIGN KEY(planet_id) REFERENCES planet(planet_id)
+    );
+
+CREATE TABLE species(
+    species_id SERIAL PRIMARY KEY,
+    name VARCHAR(60) UNIQUE NOT NULL,
+    space_travel_capable boolean,
+    description TEXT,
+    planet_id INT,
+    moon_id INT,
+    CONSTRAINT fk_planet_id FOREIGN KEY(planet_id) REFERENCES planet(planet_id),
+    CONSTRAINT fk_moon_id FOREIGN KEY(moon_id) REFERENCES moon(moon_id)
+);
